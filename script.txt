@@ -1,0 +1,21 @@
+Hello, and welcome to this brief walkthrough of a simple Python calculator. My name is Nicholas De la Rosa, and today I’ll be explaining how this script works, block by block.
+
+Let’s start with the overall structure. The program is a command‑line calculator that lets users add, subtract, multiply, or divide two numbers. It keeps running until the user decides to exit.
+
+First, we have a helper function called limpiar_pantalla. It clears the terminal screen. Inside, it uses os.system with either "cls" for Windows or "clear" for Unix‑based systems. This function is defined at the top, so it’s ready to be used later.
+
+Next, we define four arithmetic functions: Suma, Resta, Multiplicacion, and Division. Each one takes two numbers, performs the corresponding operation, and prints the result in a nicely formatted message. In the division function, there’s an important check: if the second number is zero, the program prints an error message instead of crashing. That’s a simple but essential safety measure.
+
+After that, we have the main function. Its job is to display the menu. It prints a header, lists the five options (addition, subtraction, multiplication, division, and exit), and then draws a line to separate the menu from the user input area. Notice that main only prints; it doesn’t handle any logic.
+
+Now we reach the heart of the program: the main loop. We initialize a variable Cont with the value 0. Then we start a while loop that continues as long as Cont is not equal to 5. Inside the loop, the program first calls main() to show the menu. Immediately after, it is waiting for the user to type an option. The user’s input is stored in Cont as a string.
+
+If the user enters "5", we break out of the loop immediately – that’s the exit condition. Otherwise, we enter a try block. Here, the program is asking the user for two numbers, converting them to floats. If the user types something that cannot be converted, a ValueError occurs, and the except block prints an error message. Notice that in that case, the program skips the else clause and goes back to the beginning of the loop, showing the menu again.
+
+If the conversion succeeds, the else block is executed. Inside, we check which operation the user chose. Depending on the value of Cont (still a string), we call the corresponding function. Before calling the function, we clear the screen with limpiar_pantalla() so that the result appears on a fresh screen. After the function prints the result, the loop repeats – the program is now ready for another calculation.
+
+Finally, if the user enters an option that is not between 1 and 5, the else clause prints a generic error message.
+
+That’s the whole flow. The program is simple but robust: it handles invalid numbers with a try‑except block and prevents division by zero. Right now, it is actively waiting for user input in the terminal, and it will continue to do so until the exit option is selected.
+
+Thank you for listening!
